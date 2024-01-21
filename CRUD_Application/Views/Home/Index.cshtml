@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Home Page"; 
+    int dataId = 1; 
+}
+@model List<User>
+
+<div id="form-fon">
+    <form id="create-form" method="post" asp-action="Create">
+        <ul class="input-fields">
+            <li class="field">
+                <p>First name</p>
+                <input name="firstname" type="text">
+            </li>
+
+            <li class="field">
+                <p>Last name</p>
+                <input name="lastname" type="text">
+            </li>
+
+            <li class="field">
+                <p>Age</p>
+                <input name="age" type="number">
+            </li>
+
+            <li class="field">
+                <p>Proffesion</p>
+                <input name="profession" type="text">
+            </li>
+        </ul>
+
+        <button type="submit">Create</button>
+    </form>
+
+    <form id="update-form" method="post" asp-action="Update"></form>
+    <form id="delete-form" method="post" asp-action="Delete"></form>
+</div>
+
+<button id="create-button" >Create</button>
+
+<ul id="data-list">
+    @foreach(var user in Model)
+    {
+        <li class="data">
+            <div class="data-properties">
+                <span class="data-number">@dataId</span>
+                <p class="data-firstname">@user.FirstName</p>
+                <p class="data-lastname">@user.LastName</p>
+                <p class="data-age">@user.Age</p>
+                <p class="data-profession">@user.Profession</p>
+                <input class="data-id" name="id" value="@user.Id" readonly>
+            </div>
+
+            <div class="data-buttons">
+                <button type="submit" class="update-button">Edit</button>
+                <button type="submit" class="delete-button">Delete</button>
+            </div>
+        </li>
+        dataId++; 
+    } 
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
